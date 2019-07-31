@@ -1,15 +1,20 @@
 import React from 'react';
 import logo from './logo.svg';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+
 import './App.css';
-import IndexNav from './Components/IndexNav'
+import Nav from './Components/Nav'
+import Recipe from './Components/Recipe'
 
 
 
 
 function App() {
+
   return (
     <div className="App">
-      <IndexNav />
+      <Nav />
+    
     </div>
   );
 }

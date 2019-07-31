@@ -38,6 +38,9 @@ import {
                 <NavLink href="/components/">Add New Recipe</NavLink>
               </NavItem>
               <NavItem>
+                <NavLink href="/">Home</NavLink>
+              </NavItem>
+              <NavItem>
                 <NavLink href="https://toolband.com/">ClickForASurprise!</NavLink>
               </NavItem>
               

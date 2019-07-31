@@ -1,38 +1,61 @@
 import React, { Component } from 'react';
-class FilterableProductTable extends Component {
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import App from '../App';
 
-    constructor(props) {
-        super(props);
+
+class Recipe extends Component {
+
+    constructor() {
+        super();
         this.state = {
-            text:"",
-            clicked:true
-        }
+            data: []
+        };
+    }
+    componentDidMount() {
+        this.onLoad();
+    };
+
+    onLoad = () => {
+
+        this.setState({
+            data: [{ name: "Brownie", desc: "The special kind", ingreds: ["Choc", "Sugar"] },
+            { name: "Pizza", desc: "Basic", ingreds: "Cheese & Tomato" },
+            { name: "Sandwich", desc: "Homemade", ingreds: "Bacon" },
+            { name: "Spagbol", desc: "Moms Spagetti", ingreds: ["Spag", "mushrooms"] }]
+
+        });
+
     }
 
 
-RecipeList = [{name:"Brownie",Desc:"The special kind",Ingredients:"Choc"},{name:"Pizza",Desc:"Basic",Ingredients:"Cheese & Tomato"},{name:"Sandwich",Desc:"Homemade",Ingredients:"Bacon"},{name:"Spagbol",Desc:"Moms Spagetti",Ingredients:"Spag"}];
 
-updateText = (event) => {
-this.setState({
-    text:event.target.value 
-})
+    render() {
+        return (
+            <Router>
+
+                <div>
+
+                    <ul>
+
+                        <li><Link to="/">Index</Link></li>
+
+                        <li><Link to="/addNew">Add New Recipe</Link></li>
+
+                    </ul>
+
+                    <Route exact path="/" component={App} />
+
+                    <Route path="/addNew" component={Recipe} />
+                    <App getAll={this.onLoad} />
+
+
+                    {/* <PostThread getAll={this.onLoad} data={this.state.data} /> */}
+
+                </div>
+
+            </Router>
+        );
+    }
 }
 
-updateBox = (event) => {
-    this.setState({
-        clicked:event.target.checked  
-    })
-}
-
-
-render() {
-  return (
-    <div>
-        <SearchBar passedFunction={this.updateText} passedBox={this.updateBox}/>
-        <ProductTable text={this.state.text} clicked={this.state.clicked} sportProductList={this.sportProductList} electronicProductList={this.electronicProductList}/>
-    </div>
-  );
-}
-}
-
-export default FilterableProductTable;
+export default Recipe;
