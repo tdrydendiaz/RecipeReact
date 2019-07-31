@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import App from '../App';
+
+import Index from './Index';
+import MoreDetail from './MoreDetail'
 
 
 class Recipe extends Component {
@@ -39,14 +41,13 @@ class Recipe extends Component {
 
                         <li><Link to="/">Index</Link></li>
 
-                        <li><Link to="/addNew">Add New Recipe</Link></li>
+                        <li><Link to="/MoreDetail">Add New Recipe</Link></li>
 
                     </ul>
 
-                    <Route exact path="/" component={App} />
-
-                    <Route path="/addNew" component={Recipe} />
-                    <App getAll={this.onLoad} />
+                    <Route exact path="/" component={Index} />
+                    <Route exact path="/MoreDetail" component={MoreDetail} />
+                    
 
 
                     {/* <PostThread getAll={this.onLoad} data={this.state.data} /> */}

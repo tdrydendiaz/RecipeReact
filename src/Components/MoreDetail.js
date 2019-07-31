@@ -13,3 +13,5 @@ export class MoreDetail extends Component {
         );
     }
 }
+
+export default MoreDetail;
