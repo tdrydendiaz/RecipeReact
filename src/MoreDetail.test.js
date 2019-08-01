@@ -7,7 +7,7 @@ it("clicks a button", () => {
 
   expect(wrapper).toMatchSnapshot();
 
-  wrapper.find('[name="Delete Recipe"]').simulate("click");
+  wrapper.find('[name="clickme"]').simulate("click");
 
   expect(wrapper).toMatchSnapshot();
 });

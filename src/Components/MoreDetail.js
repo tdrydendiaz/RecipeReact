@@ -37,7 +37,7 @@ export class MoreDetail extends Component {
                 <p>Recipe Description: {this.props.description}</p>
                 <p>Recipe Ingrients: {this.props.ingredients}</p>
                 <p>Recipe Image: {this.props.image}</p>
-                <button onClick={this.makeRequest} Delete Recipe> Delete Recipe </button>
+                <button name="clickme" onClick={this.makeRequest} Delete Recipe> Delete Recipe </button>
                 <p>{this.state.confirm}</p>
              
             </div>
