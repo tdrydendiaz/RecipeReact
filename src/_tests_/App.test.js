@@ -17,3 +17,9 @@ it('renders Nav comp', () => {
   const content = <Nav />;
   expect(wrapper.contains(content)).toEqual(true);
 });
+
+it("render a prop", () => {
+    const wrapper = shallow(<App name="A Name" />);
+    expect(wrapper.instance().props.name).toEqual("A Name");
+    expect(wrapper).toMatchSnapshot();
+  });
