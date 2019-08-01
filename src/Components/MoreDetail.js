@@ -4,24 +4,24 @@ import axios from "axios";
 
 export class MoreDetail extends Component {
 
-        constructor() {
-            super();
-            this.state = {
-                confirm: ""
-            };
-        }
-makeRequest = () => {
+    constructor() {
+        super();
+        this.state = {
+            confirm: ""
+        };
+    }
+    makeRequest = () => {
         let deleteItem = {
             _id: this.props.id
         }
         axios
             .delete("http://localhost:5000/recipe/deleteRecipe", { data: deleteItem })
             .then(response => {
-                console.log("deleted recipe")
-this.setState({
-          text: "deleted"
-          
-        });
+
+                this.setState({
+                    confirm: "deleted"
+
+                });
                 this.props.getAll();
             });
     };
@@ -38,6 +38,8 @@ this.setState({
                 <p>Recipe Ingrients: {this.props.ingredients}</p>
                 <p>Recipe Image: {this.props.image}</p>
                 <button onClick={this.makeRequest} Delete Recipe> Delete Recipe </button>
+                <p>{this.state.confirm}</p>
+             
             </div>
 
         );

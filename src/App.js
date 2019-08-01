@@ -40,11 +40,12 @@ export default class App extends React.Component {
 
           <Nav />
 
-          <Route exact path="/" render={() => <RecipeThread getAll={this.onLoad} data={this.state.data} />}/>
+          <Route exact path="/" render={() => <RecipeThread getAll={this.onLoad} data={this.state.data} />} />
+
+          <Route exact path="/AddRecipe" render={() => <AddRecipe getAll={this.onLoad} data={this.state.data} />} />
 
           <Route path="/MoreDetail" component={MoreDetail} />
 
-          <Route path="/AddRecipe" component={AddRecipe} getAll={this.onLoad} data={this.state.data} />
 
           {this.state.data.map((item) => (
 

@@ -9,10 +9,6 @@ import {
   Nav,
   NavItem,
   NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem
 } from 'reactstrap';
 
 import Routers from './Routers'
@@ -42,17 +38,9 @@ export default class IndexNav extends Component {
               <NavItem>
                 <NavLink href="/">Home</NavLink>
               </NavItem>
-              {/* <NavItem>
-                <NavLink href="/MoreDetail">MoreDetail</NavLink>
-              </NavItem> */}
-
               <NavItem>
                 <NavLink href="/AddRecipe">New Recipe</NavLink>
               </NavItem>
-              <NavItem>
-                <NavLink href="https://toolband.com/">ClickForASurprise!</NavLink>
-              </NavItem>
-
             </Nav>
           </Collapse>
         </Navbar>
