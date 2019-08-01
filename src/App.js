@@ -10,15 +10,36 @@ import Index from './Components/Index';
 
 
 
-function App() {
+export default class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      data: []
+    }
+  };
+  componentDidMount() {
+    this.onLoad();
+  };
 
-  return (
-    <div className="App">
-      <Nav />
-      <Index />
-    
-    </div>
-  );
+  onLoad = () => {
+
+    this.setState({
+      data: [{ name: "Brownie", desc: "The special kind", ingreds: ["Choc", "Sugar"] },
+      { name: "Pizza", desc: "Basic", ingreds: "Cheese & Tomato" },
+      { name: "Sandwich", desc: "Homemade", ingreds: "Bacon" },
+      { name: "Spagbol", desc: "Moms Spagetti", ingreds: ["Spag", "mushrooms"] }]
+
+    });
+
+  }
+  render(){
+    return (
+      <div className="App">
+        <Nav />
+        {/* <Index /> */}
+
+      </div>
+    );
+  }
 }
 
-export default App;
