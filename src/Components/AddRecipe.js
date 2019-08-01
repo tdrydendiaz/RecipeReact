@@ -47,19 +47,20 @@ class AddRecipe extends Component {
     render() {
         return (
             <div>
-                <form onSubmit={this.makeRequest}>
+                <form name="form" onSubmit={this.makeRequest}>
+                    
                     <label for="repName" id="accUsernameLabel">Name: </label>
-                    <input type="text" id="accUsername" class="form-control" name="accUsername" />
+                    <input name="name" type="text" id="accUsername" class="form-control" name="accUsername" />
                     <br />
                     <label for="accEmail" id="accEmailLable">Description: </label>
-                    <input type="text" id="accEmail" class="form-control" name="accEmail" />
+                    <input name="desc" type="text" id="accEmail" class="form-control" name="accEmail" />
                     <br />
                     <label for="accContent" id="accContentLable">Ingredients: </label>
-                    <input type="text" id="accContent" class="form-control" name="accContent" />
+                    <input name="ingreds"  type="text" id="accContent" class="form-control" name="accContent" />
                     <br />
                     <br />
                     <label for="accEmail" id="accEmailLable">Image: </label>
-                    <input type="text" id="accEmail" class="form-control" name="accEmail" />
+                    <input name="image" type="text" id="accEmail" class="form-control" name="accEmail" />
                     <br />
 
                     <input type="submit" class="btn btn-primary" value="create post" />
