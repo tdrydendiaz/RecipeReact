@@ -17,7 +17,7 @@ function RecipeThread(props) {
             <Table striped bordered hover variant="dark">
                 <tbody>
                     {_.reverse(data).map((item, index) => (
-                        <Recipe key={index} getAll={props.getAll} name={item.name} description={item.description} ingredients={item.ingredients} image={item.ingredients} />
+                        <Recipe key={index} getAll={props.getAll} name={item.name}  />
                     ))}
                 </tbody>
             </Table>

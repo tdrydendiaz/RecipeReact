@@ -42,9 +42,9 @@ export default class IndexNav extends Component {
               <NavItem>
                 <NavLink href="/">Home</NavLink>
               </NavItem>
-              <NavItem>
+              {/* <NavItem>
                 <NavLink href="/MoreDetail">MoreDetail</NavLink>
-              </NavItem>
+              </NavItem> */}
 
               <NavItem>
                 <NavLink href="/AddRecipe">New Recipe</NavLink>

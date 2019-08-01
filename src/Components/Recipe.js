@@ -7,17 +7,7 @@ import axios from "axios";
 function Recipe(props) {
 
 
-    let handleClick = () => {
-        let itemToDelete = {
-            name: props.name,
-            image: props.image
-        }
-
-        axios
-            .delete("http://localhost:5000/recipe/deleteRecipe", { data: itemToDelete })
-            .then(res => props.getAll())
-
-    }
+  
 
 
     return (
@@ -27,7 +17,7 @@ function Recipe(props) {
                 <p>{props.ingredients}</p>
                 <p>{props.description}</p>
                 <p>{props.image}</p>
-                <button onClick={handleClick}>Delete Item</button>
+                <button ><Link to={"/"+props.name}>More Details</Link></button>
             </td>
         </tr>
     );

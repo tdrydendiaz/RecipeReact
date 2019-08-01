@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import AddRecipe from './AddRecipe'
+
 
 
 export class MoreDetail extends Component {
@@ -8,7 +8,10 @@ export class MoreDetail extends Component {
 
         return (
             <div >
-                <p>More Detail about Your Recipe</p>
+                <p>Recipe Name: {this.props.name}</p>
+                <p>Recipe Description: {this.props.description}</p>
+                <p>Recipe Ingrients: {this.props.ingredients}</p>
+                <p>Recipe Image: {this.props.image}</p>
             
             </div>
 

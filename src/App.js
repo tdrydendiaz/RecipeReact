@@ -9,22 +9,20 @@ import RecipeThread from './Components/RecipeThread'
 import MoreDetail from './Components/MoreDetail'
 import AddRecipe from './Components/AddRecipe'
 
-
-
-
 export default class App extends React.Component {
+
   constructor() {
     super();
     this.state = {
       data: []
     }
   };
+
   componentDidMount() {
     this.onLoad();
   };
 
   onLoad = () => {
-
     axios
       .get("http://localhost:5000/recipe/all")
       .then(response => {
@@ -33,30 +31,33 @@ export default class App extends React.Component {
         });
         console.log(this.state.data)
       });
-
   }
+
   render() {
     return (
       <div className="App">
         <Router>
-          <div>
-            <ul>
-    
-            </ul>
-           
-
-          </div>
 
           <Nav />
 
-          <Route path="/MoreDetail" component={MoreDetail}  />
-          <Route path="/AddRecipe" component={AddRecipe} getAll={this.onLoad} data={this.state.data} /> 
-          <Route path="/RecipeThread" component={RecipeThread} getAll={this.onLoad} data={this.state.data} />
+          <Route exact path="/" render={() => <RecipeThread getAll={this.onLoad} data={this.state.data} />}/>
 
-          <RecipeThread getAll={this.onLoad} data={this.state.data} />
-         
+          <Route path="/MoreDetail" component={MoreDetail} />
+
+          <Route path="/AddRecipe" component={AddRecipe} getAll={this.onLoad} data={this.state.data} />
+
+          {this.state.data.map((item) => (
+
+            <Route path={"/" + item.name} render={() => <MoreDetail getAll={this.onLoad}
+              name={item.name}
+              description={item.description}
+              ingredients={item.ingredients}
+
+              id={item._id} />} />
+
+          ))}
+
         </Router>
-
 
       </div>
     );
