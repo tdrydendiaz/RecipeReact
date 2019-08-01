@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import {
   Collapse,
   Navbar,
@@ -10,9 +12,12 @@ import {
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
-  DropdownItem } from 'reactstrap';
+  DropdownItem
+} from 'reactstrap';
 
-  export default class  IndexNav extends Component {
+import Routers from './Routers'
+
+export default class IndexNav extends Component {
   constructor(props) {
     super(props);
 
@@ -35,18 +40,23 @@ import {
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="/components/">Add New Recipe</NavLink>
+                <NavLink href="/">Home</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/">Home</NavLink>
+                <NavLink href="/MoreDetail">MoreDetail</NavLink>
+              </NavItem>
+
+              <NavItem>
+                <NavLink href="/AddRecipe">New Recipe</NavLink>
               </NavItem>
               <NavItem>
                 <NavLink href="https://toolband.com/">ClickForASurprise!</NavLink>
               </NavItem>
-              
+
             </Nav>
           </Collapse>
         </Navbar>
+        <Routers />
       </div>
     );
   }

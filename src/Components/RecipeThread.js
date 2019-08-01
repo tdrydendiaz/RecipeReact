@@ -3,7 +3,7 @@ import _ from 'lodash';
 import {
     Table
 } from 'reactstrap';
-
+import Recipe from './Recipe'
 
 
 function RecipeThread(props) {
@@ -17,14 +17,13 @@ function RecipeThread(props) {
             <Table striped bordered hover variant="dark">
                 <tbody>
                     {_.reverse(data).map((item, index) => (
-                        <Recipe key={index} getAll={props.getAll} name={item.username} desc={item.content} ingreds={item.ingreds} />
+                        <Recipe key={index} getAll={props.getAll} name={item.name} description={item.description} ingredients={item.ingredients} image={item.ingredients} />
                     ))}
                 </tbody>
             </Table>
         </div>
     );
 }
-
 
 
 

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import AddRecipe from './AddRecipe'
 
 
 export class MoreDetail extends Component {
@@ -8,6 +9,7 @@ export class MoreDetail extends Component {
         return (
             <div >
                 <p>More Detail about Your Recipe</p>
+            
             </div>
 
         );

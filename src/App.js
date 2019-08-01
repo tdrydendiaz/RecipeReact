@@ -3,9 +3,11 @@ import logo from './logo.svg';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 import './App.css';
-import Nav from './Components/Nav'
-import Recipe from './Components/Recipe'
-import Index from './Components/Index';
+import Nav from './Components/Nav';
+import axios from "axios";
+import RecipeThread from './Components/RecipeThread'
+import MoreDetail from './Components/MoreDetail'
+import AddRecipe from './Components/AddRecipe'
 
 
 
@@ -23,23 +25,40 @@ export default class App extends React.Component {
 
   onLoad = () => {
 
-    this.setState({
-      data: [{ name: "Brownie", desc: "The special kind", ingreds: ["Choc", "Sugar"] },
-      { name: "Pizza", desc: "Basic", ingreds: "Cheese & Tomato" },
-      { name: "Sandwich", desc: "Homemade", ingreds: "Bacon" },
-      { name: "Spagbol", desc: "Moms Spagetti", ingreds: ["Spag", "mushrooms"] }]
-
-    });
+    axios
+      .get("http://localhost:5000/recipe/all")
+      .then(response => {
+        this.setState({
+          data: response.data
+        });
+        console.log(this.state.data)
+      });
 
   }
-  render(){
+  render() {
     return (
       <div className="App">
-        <Nav />
-        {/* <Index /> */}
+        <Router>
+          <div>
+            <ul>
+    
+            </ul>
+           
+
+          </div>
+
+          <Nav />
+
+          <Route path="/MoreDetail" component={MoreDetail}  />
+          <Route path="/AddRecipe" component={AddRecipe} getAll={this.onLoad} data={this.state.data} /> 
+          <Route path="/RecipeThread" component={RecipeThread} getAll={this.onLoad} data={this.state.data} />
+
+          <RecipeThread getAll={this.onLoad} data={this.state.data} />
+         
+        </Router>
+
 
       </div>
     );
   }
 }
-
